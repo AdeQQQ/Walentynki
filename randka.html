@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onze date 💞</title>
+  <style>
+    :root{--bg:#071025; --card:rgba(255,255,255,.08); --txt:#fff; --muted:rgba(255,255,255,.75)}
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center; color:var(--txt);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1000px 600px at 30% 10%, rgba(255,80,160,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 40%, rgba(56,189,248,.18), transparent 60%),
+        linear-gradient(135deg, #060b18, var(--bg));
+      padding:18px;
+    }
+    .wrap{width:min(900px, 94vw)}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;
+      padding:26px 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+    }
+    h1{margin:0 0 8px; font-size:clamp(26px, 4vw, 40px)}
+    p{margin:0 0 18px; color:var(--muted); line-height:1.5}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+    }
+    @media (max-width:820px){ .grid{grid-template-columns:1fr} }
+    .photo{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      overflow:hidden;
+      background:rgba(0,0,0,.18);
+      min-height:220px;
+      display:grid;
+      place-items:center;
+      color:rgba(255,255,255,.7);
+      text-align:center;
+      padding:14px;
+    }
+    .photo img{width:100%; height:100%; object-fit:cover; display:block}
+    .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      border:0; padding:14px 18px; border-radius:999px; cursor:pointer;
+      font-weight:800; font-size:16px;
+      background:linear-gradient(135deg, #34d399, #22c55e);
+      color:#06110c;
+    }
+    .ghost{
+      background:transparent;
+      color:rgba(255,255,255,.85);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .mini{font-size:12px; color:rgba(255,255,255,.6); margin-top:10px}
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.18);
+      color:rgba(255,255,255,.8);
+      font-size:12px;
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="pill" id="pill">💌 Antwoord: JA</div>
+      <h1>Dan is het officieel: date! 💞</h1>
+      <p>
+        Voor deze date gaan we lunchen in <b>Amsterdam</b> bij <b>“Kazik”</b>.
+        En daarna… kiezen we een paar leuke activiteiten.
+      </p>
+
+      <div class="grid">
+        <div class="photo">
+          <img src="assets/Kazik2.jpg" alt="Amsterdam - foto 1"
+               onerror="this.remove(); this.parentElement.textContent='Voeg een foto toe: assets/amsterdam1.jpg (of verander de src)';">
+        </div>
+        <div class="photo">
+          <img src="assets/kazik.jpg" alt="Kazik - foto"
+               onerror="this.remove(); this.parentElement.textContent='Voeg een foto toe: assets/kazik.jpg (of verander de src)';">
+        </div>
+      </div>
+
+      <div class="btnrow">
+        <button class="btn" id="next">Verder ➜</button>
+        <button class="btn ghost" onclick="history.back()">Terug</button>
+      </div>
+      <div class="mini">Tip: zet je foto’s in <code>assets/</code> en pas bestandsnamen of <code>src</code> aan.</div>
+    </div>
+  </div>
+
+  <script>
+    const ans = localStorage.getItem('answer') || 'JA';
+    document.getElementById('pill').textContent = `💌 Antwoord: ${ans}`;
+    document.getElementById('next').addEventListener('click', ()=>{
+      window.location.href = 'atrakcje.html';
+    });
+  </script>
+</body>
+</html>
